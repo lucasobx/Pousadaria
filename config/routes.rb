@@ -18,5 +18,9 @@ Rails.application.routes.draw do
     end
 
     resources :inn_rooms, only: [:show, :edit, :update]
+
+    resources :promotions, only: [:new, :create, :show] do
+      resources :promotion_rooms, only: [:new, :create]
+    end
   end
 end

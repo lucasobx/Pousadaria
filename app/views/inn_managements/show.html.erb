@@ -37,3 +37,13 @@
   <%= link_to 'Entrar', new_inn_owner_session_path, class: 'btn btn-primary' %>
   <%= link_to 'Criar nova conta', new_inn_owner_registration_path, class: 'btn btn-success' %>
 <% end %>
+
+<%= link_to 'Nova Promoção', new_inn_dashboard_promotion_path, class: 'btn btn-primary' %>
+
+<h2>Promoções Atuais</h2>
+<% @inn.promotions.each do |p |%>
+  <div>
+    <h3><%= p.name %></h3>
+    <p>Período: <%= l(p.start_date) %> - <%= l(p.end_date) %></p>
+  </div>
+<% end %>

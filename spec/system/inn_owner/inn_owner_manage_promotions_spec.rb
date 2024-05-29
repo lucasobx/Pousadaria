@@ -22,4 +22,8 @@ describe 'Inn owner manage promotions' do
     expect(page).to have_content 'Black Friday'
     expect(page).to have_content '15/11/2024 - 25/12/2024'
   end
+
+  it '' do
+    
+  end
 end

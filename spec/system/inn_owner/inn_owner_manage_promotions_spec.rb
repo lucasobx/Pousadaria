@@ -21,9 +21,15 @@ describe 'Inn owner manage promotions' do
     expect(page).to have_css 'div.alert', text: 'Promoção criada com sucesso!'
     expect(page).to have_content 'Black Friday'
     expect(page).to have_content '15/11/2024 - 25/12/2024'
-  end
 
-  it '' do
-    
+    click_on 'Adicionar Quartos à Promoção'
+    check 'Quarto com Varanda'
+    fill_in 'Desconto (%)', with: '10', match: :first
+    check 'Quarto Térreo'
+    fill_in 'Desconto (%)', with, '20', match: :prefer_exact
+    click_on 'Salvar Descontos'
+
+    expect(page).to have_content 'Quarto com Varanda: 10% de desconto'
+    expect(page).to have_content 'Quarto Térreo: 20% de desconto'
   end
 end

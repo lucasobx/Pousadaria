@@ -45,5 +45,10 @@
   <div>
     <h3><%= p.name %></h3>
     <p>Período: <%= l(p.start_date) %> - <%= l(p.end_date) %></p>
+    <ul>
+      <% p.promotion_rooms.each do |pr| %>
+        <li><%= pr.inn_room.name %>: <%= pr.discount_percentage %> de desconto</li>
+      <% end %>
+    </ul>
   </div>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_29_140905) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_144440) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -91,6 +91,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_140905) do
     t.index ["registration_number"], name: "index_inns_on_registration_number", unique: true
   end
 
+  create_table "promotion_rooms", force: :cascade do |t|
+    t.integer "promotion_id", null: false
+    t.integer "inn_room_id", null: false
+    t.integer "discount_percentage", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inn_room_id"], name: "index_promotion_rooms_on_inn_room_id"
+    t.index ["promotion_id"], name: "index_promotion_rooms_on_promotion_id"
+  end
+
   create_table "promotions", force: :cascade do |t|
     t.string "name", null: false
     t.date "start_date", null: false
@@ -115,6 +125,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_140905) do
   add_foreign_key "addresses", "inns"
   add_foreign_key "inn_rooms", "inns"
   add_foreign_key "inns", "inn_owners"
+  add_foreign_key "promotion_rooms", "inn_rooms"
+  add_foreign_key "promotion_rooms", "promotions"
   add_foreign_key "promotions", "inns"
   add_foreign_key "room_types", "inns"
 end

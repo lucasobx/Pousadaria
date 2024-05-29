@@ -32,4 +32,8 @@ describe 'Inn owner manage promotions' do
     expect(page).to have_content 'Quarto com Varanda: 10% de desconto'
     expect(page).to have_content 'Quarto Térreo: 20% de desconto'
   end
+
+  it '' do
+    
+  end
 end
